@@ -537,13 +537,13 @@ static BOOL do_register_dll( struct register_dll_info *info, const WCHAR *path,
         }
     }
 
-    if (!(module = LoadLibraryExW( path, 0, LOAD_WITH_ALTERED_SEARCH_PATH )))
+    /*if (!(module = LoadLibraryExW( path, 0, LOAD_WITH_ALTERED_SEARCH_PATH )))
     {
         WARN( "could not load %s\n", debugstr_w(path) );
         status.FailureCode = SPREG_LOADLIBRARY;
         status.Win32Error = GetLastError();
         goto done;
-    }
+    }*/
 
     if ((nt = RtlImageNtHeader( module )) && !(nt->FileHeader.Characteristics & IMAGE_FILE_DLL))
     {
